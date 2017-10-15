@@ -16,8 +16,8 @@ import static java.lang.Integer.parseInt;
 
 public class MainActivity extends AppCompatActivity {
 
-    public int a;
-    public int b;
+    public int a = 0;
+    public int b = 0;
     private Button dec = (Button) findViewById(R.id.dec);
     private Button inc = (Button) findViewById(R.id.inc);
     private Button count = (Button) findViewById(R.id.calc);
