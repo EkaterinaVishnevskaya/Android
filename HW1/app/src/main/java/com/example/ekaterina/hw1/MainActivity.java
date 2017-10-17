@@ -18,18 +18,28 @@ public class MainActivity extends AppCompatActivity {
 
     public int a = 0;
     public int b = 0;
-    private Button dec = (Button) findViewById(R.id.dec);
-    private Button inc = (Button) findViewById(R.id.inc);
-    private Button count = (Button) findViewById(R.id.calc);
-    private TextView first = (TextView)findViewById(R.id.first);
-    private EditText second = (EditText)findViewById(R.id.second);
-    private TextView result = (TextView)findViewById(R.id.result);
-    private Button change = (Button) findViewById(R.id.change_activity);
+    private Button dec;
+    private Button inc;
+    private Button count;
+    private TextView first;
+    private EditText second;
+    private TextView result;
+    private Button change;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        dec = (Button) findViewById(R.id.dec);
+        inc = (Button) findViewById(R.id.inc);
+        count = (Button) findViewById(R.id.calc);
+        first = (TextView)findViewById(R.id.first);
+        second = (EditText)findViewById(R.id.second);
+        result = (TextView)findViewById(R.id.result);
+        change = (Button) findViewById(R.id.change_activity);
+
+
         dec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

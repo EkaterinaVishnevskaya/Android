@@ -2,6 +2,7 @@ package com.example.ekaterina.hw1;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,16 +14,19 @@ import android.widget.TextView;
 
 import static java.lang.Integer.parseInt;
 
-public class SecondActivity extends AppCompatActivity {
+public class SecondActivity extends AppCompatActivity implements BlankFragment.OnFragmentInteractionListener, SecondBlankFragment.OnFragmentInteractionListener {
 
-    private ImageView mImageView= (ImageView) findViewById(R.id.photo);;
-    private Button tp = (Button) findViewById(R.id.take_photo);
+    private ImageView mImageView;
+    private Button tp;
+    private Button button;
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+        mImageView= (ImageView) findViewById(R.id.photo);
+        tp = (Button) findViewById(R.id.take_photo);
         tp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -32,6 +36,20 @@ public class SecondActivity extends AppCompatActivity {
                 }
             }
         });
+
+        /*button = (Button) findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SecondBlankFragment fragment2 =new SecondBlankFragment();
+
+                getSupportFragmentManager().beginTransaction().add(R.id.frame, fragment2).commit();
+            }
+        });*/
+
+        BlankFragment fragment =new BlankFragment();
+
+        getSupportFragmentManager().beginTransaction().add(R.id.button_fragment, fragment).commit();
     }
 
     @Override
@@ -41,5 +59,10 @@ public class SecondActivity extends AppCompatActivity {
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             mImageView.setImageBitmap(imageBitmap);
         }
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
