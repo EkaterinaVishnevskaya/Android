@@ -63,6 +63,8 @@ public class SecondActivity extends AppCompatActivity implements BlankFragment.O
 
     @Override
     public void onFragmentInteraction(Uri uri) {
+        //SecondBlankFragment fragment =new SecondBlankFragment();
 
+       // getSupportFragmentManager().beginTransaction().add(R.id.frame, fragment).commit();
     }
 }
